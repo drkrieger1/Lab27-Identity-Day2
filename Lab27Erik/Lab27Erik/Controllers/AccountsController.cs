@@ -21,9 +21,9 @@ namespace Lab27Erik.Controllers
         }
 
         [HttpGet]
-        public IActionResult Register(string returnUrl = null)
+        public IActionResult Register()
         {
-            ViewData["ReturnUrl"] = returnUrl;
+            //ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
 
@@ -68,7 +68,17 @@ namespace Lab27Erik.Controllers
             string error = "you are wrong";
             ModelState.AddModelError("", error);
             return View();
-
+        }
+        private IActionResult RedirectToLocal(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
     }
 }

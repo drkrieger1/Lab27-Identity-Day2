@@ -21,9 +21,9 @@ namespace Lab27Erik.Controllers
         }
 
         [HttpGet]
-        public IActionResult Register()
+        public IActionResult Register(string returnUrl = null)
         {
-            //ViewData["ReturnUrl"] = returnUrl;
+            ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
 
@@ -54,7 +54,7 @@ namespace Lab27Erik.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> logIn(LogInViewModel lvm)
+        public async Task<IActionResult> LogIn(LogInViewModel lvm)
         {
             if (ModelState.IsValid)
             {

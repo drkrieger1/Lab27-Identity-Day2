@@ -49,7 +49,7 @@ namespace Lab27Erik.Controllers
 
         [HttpGet]
         public IActionResult LogIn()
-        {
+        {   
             return View();
         }
 
